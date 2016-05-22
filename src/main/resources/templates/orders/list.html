@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Orders For Customers</title>
+</head>
+<body>
+<div th:each="o : ${orders}" style="border: 1px double blue;">
+    <h2 th:text="${o.id + ':' + o.comment}">Order Name</h2>
+    <h3>OrderItems</h3>
+    <table style="background-color: grey;">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>PurchasePrice</th>
+                <th>SellOutPrice</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr th:each="oi : ${o.orderItems}">
+               <td th:text="${oi.product.name}"></td>
+               <td th:text="${oi.quantity}"></td>
+               <td th:text="${oi.unit}"></td>
+               <td th:text="${oi.purchasePrice}"></td>
+               <td th:text="${oi.selloutPrice}"></td>
+           </tr>
+        </tbody>
+    </table>
+
+    <h3>Shipments</h3>
+    <table style="background-color: grey;">
+        <thead>
+           <tr>
+               <th>Number</th>
+               <th>Name</th>
+               <th>Address</th>
+               <th>Contact Number</th>
+               <th>Cost</th>
+               <th>Provider</th>
+           </tr>
+        </thead>
+        <tbody th:each="s : ${o.shipments}">
+        <tr>
+            <td th:text="${s.shipmentNumber}"></td>
+            <td th:text="${s.receiptName}"></td>
+            <td th:text="${s.receiptAddress}"></td>
+            <td th:text="${s.receiptContactNumber}"></td>
+            <td th:text="${s.cost}"></td>
+            <td th:text="${s.shipmentProvider.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

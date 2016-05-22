@@ -1,0 +1,47 @@
+<!doctype html>
+        <html>
+<head>
+
+</head>
+<body>
+<h1>Order Details</h1>
+Items:
+<table border="1">
+    <tr>
+        <td>
+            Product Name
+        </td>
+        <td>Quantity</td> <td>Unit</td> <td>Price</td>
+    </tr>
+    #foreach($oi in $order.orderItems)
+        <tr>
+            <td>$oi.product.name</td>
+            <td>$oi.quantity</td>
+            <td>$oi.unit</td>
+            <td>$oi.selloutPrice</td>
+        </tr>
+    #end
+</table>
+Shipments
+<table border="1">
+    <tr>
+        <td>Number</td>
+        <td>name</td>
+        <td>address</td>
+        <td>contact number</td>
+        <td>cost</td>
+        <td>provoider</td>
+    </tr>
+    #foreach($s in $order.shipments)
+        <tr>
+            <td>$s.shipmentNumber</td>
+            <td>$s.receiptName</td>
+            <td>$s.receiptAddress</td>
+            <td>$s.receiptContactNumber</td>
+            <td>$s.cost</td>
+            <td>$s.shipmentProvider.name</td>
+        </tr>
+    #end
+</table>
+</body>
+</html>

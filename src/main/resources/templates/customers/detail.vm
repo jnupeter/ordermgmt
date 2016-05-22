@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<body>
+<div id="customer">
+        $customer.name<br>
+        $customer.id<br />
+        $customer.contactNumber<br>
+</div>
+<div class="orders">
+    #foreach($o in $orders)
+        $o.customer.name <a href="../orders/$o.id">$o.comment</a> <br />
+    #end
+</div>
+<a href="../orders/new">New Order</a>
+</body>
+
+</html>
