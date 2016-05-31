@@ -349,4 +349,27 @@
     "email": "kfox1d@wunderground.com",
     "gender": "Male",
     "idNumber": "589-92-4183"
-  }]}
+  }],
+"shipments" : [
+  {
+    "id": 1,
+    "shipmentNumber": "KF812098",
+    "receiptName": "abc",
+    "receiptAddress": "receipt address",
+    "receiptContactNumber": "13712341234",
+    "shipmentProviderName": "King&Kong",
+    "cost": 15.00,
+    "status": "清关中"
+  },
+  {
+    "id": 2,
+    "shipmentNumber": "KF855673",
+    "receiptName": "def",
+    "receiptAddress": "receipt address",
+    "receiptContactNumber": "13778901230",
+    "shipmentProviderName": "King&Kong",
+    "cost": 35.00,
+    "status": "顺丰接件"
+  }
+]
+}

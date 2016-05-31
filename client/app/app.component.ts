@@ -6,6 +6,8 @@ import {HomeComponent} from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ProductComponent } from './product/product.component';
 import { ShipmentComponent } from './shipment/shipment.component';
+import { SettingComponent } from './setting/settings.component';
+import { OrderComponent }  from './order/order.component';
 
 @Component({
   selector: 'my-app',
@@ -26,6 +28,9 @@ import { ShipmentComponent } from './shipment/shipment.component';
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            <li [class.active]="isCurrentActive(['Orders'])">
+               <a [routerLink]="['Orders']" (click)="setTitle('Orders')">Orders</a>
+            </li>
             <li [class.active]="isCurrentActive(['Customers'])">
                <a [routerLink]="['Customers']" (click)="setTitle('Customers')">Customers</a>
             </li>
@@ -34,6 +39,9 @@ import { ShipmentComponent } from './shipment/shipment.component';
             </li>
             <li [class.active]="isCurrentActive(['Shipments'])">
                <a [routerLink]="['Shipments']" (click)="setTitle('Shipments')">Shipments</a>
+            </li>
+            <li [class.active]="isCurrentActive(['Setting'])">
+               <a [routerLink]="['Setting']" (click)="setTitle('Setting')">Setting<i class="fa fa-cog" aria-hidden="true"></i></a>
             </li>
           </ul>
 
@@ -48,9 +56,11 @@ import { ShipmentComponent } from './shipment/shipment.component';
 })
 @RouteConfig([
   {path : '/', name : 'Home', component : HomeComponent},
+  {path : '/orders/...', name: 'Orders', component: OrderComponent},
   {path : '/customers/...', name: 'Customers', component: CustomerComponent},
   {path : '/products/...', name: 'Products', component: ProductComponent},
   {path : '/shipments/...', name: 'Shipments', component: ShipmentComponent},
+  {path : '/setting', name: 'Setting', component: SettingComponent}
 ])
 export class AppComponent {
   constructor(private _title: Title, private _router: Router){}
